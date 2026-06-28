@@ -58,7 +58,7 @@ export default function LoginPage() {
                 type="email"
                 value={form.email}
                 onChange={e => setForm({ ...form, email: e.target.value })}
-                placeholder="admin@maagayatri.com"
+                placeholder="Enter admin email"
                 className="w-full px-4 py-3.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-all"
                 required
               />
