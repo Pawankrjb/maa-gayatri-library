@@ -9,7 +9,24 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:3000', credentials: true }));
+const allowedOrigins = [
+  'https://maa-gayatri-library.vercel.app',
+  ...(process.env.CLIENT_URL || '').split(',').map(origin => origin.trim()).filter(Boolean)
+].map(origin => origin.replace(/\/$/, ''));
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true);
+
+    const normalizedOrigin = origin.replace(/\/$/, '');
+    const isAllowed =
+      allowedOrigins.includes(normalizedOrigin) ||
+      /\.vercel\.app$/.test(new URL(normalizedOrigin).hostname);
+
+    callback(isAllowed ? null : new Error('Not allowed by CORS'), isAllowed);
+  },
+  credentials: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
