@@ -21,6 +21,10 @@ app.use('/api/dashboard', require('./routes/dashboard'));
 app.use('/api/reports', require('./routes/reports'));
 
 // Health check
+app.get('/', (req, res) => {
+  res.send('Maa Gayatri Library API is running!');
+});
+
 app.get('/api/health', (req, res) => res.json({ status: 'OK', message: 'Maa Gayatri Library API Running' }));
 
 // Connect to MongoDB and start server
