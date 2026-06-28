@@ -55,7 +55,7 @@ export default function About() {
               <img
                 src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80"
                 alt="Students studying"
-                className="w-full h-[500px] object-cover"
+                className="w-full h-[360px] sm:h-[500px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy-900/40 to-transparent" />
             </div>

@@ -122,7 +122,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white dark:bg-navy-900 border-t border-gray-100 dark:border-navy-800"
+            className="lg:hidden bg-white dark:bg-navy-900 border-t border-gray-100 dark:border-navy-800 mt-2 max-h-[70vh] overflow-auto"
           >
             <div className="px-4 py-4 space-y-1">
               {navLinks.map(link => (
