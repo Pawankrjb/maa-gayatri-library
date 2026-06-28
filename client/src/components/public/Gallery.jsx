@@ -50,7 +50,7 @@ export default function Gallery() {
               <img
                 src={img.url}
                 alt={img.caption || 'Library'}
-                className={`w-full object-cover group-hover:scale-105 transition-transform duration-500 ${i === 0 ? 'h-64 md:h-full' : 'h-48'}`}
+                className={`w-full object-cover group-hover:scale-105 transition-transform duration-500 ${i === 0 ? 'h-56 sm:h-64 md:h-full' : 'h-44 sm:h-48'}`}
               />
               <div className="absolute inset-0 bg-navy-900/0 group-hover:bg-navy-900/40 transition-all duration-300 flex items-end">
                 <div className="p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">

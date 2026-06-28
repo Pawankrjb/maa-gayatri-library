@@ -120,7 +120,7 @@ export default function Contact() {
           >
             {contact.mapEmbed ? (
               <div
-                className="w-full h-full min-h-[400px]"
+                className="w-full h-full min-h-[300px] sm:min-h-[400px]"
                 dangerouslySetInnerHTML={{ __html: contact.mapEmbed }}
               />
             ) : (
