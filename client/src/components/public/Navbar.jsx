@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../../context/ThemeContext';
 import { SunIcon, MoonIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
@@ -32,6 +32,17 @@ export default function Navbar() {
     setMenuOpen(false);
   };
 
+  const navigateToSection = (event, href) => {
+    event.preventDefault();
+    setMenuOpen(false);
+    window.history.pushState(null, '', href);
+
+    window.requestAnimationFrame(() => {
+      const id = href.replace('#', '');
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  };
+
   return (
     <motion.nav
       initial={{ y: -80 }}
@@ -56,9 +67,10 @@ export default function Navbar() {
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map(link => (
-              <button
+              <a
                 key={link.label}
-                onClick={() => scrollTo(link.href)}
+                href={link.href}
+                onClick={(event) => navigateToSection(event, link.href)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   scrolled
                     ? 'text-gray-700 dark:text-gray-300 hover:text-navy-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-navy-800'
@@ -66,7 +78,7 @@ export default function Navbar() {
                 }`}
               >
                 {link.label}
-              </button>
+              </a>
             ))}
           </div>
 
@@ -114,17 +126,18 @@ export default function Navbar() {
           >
             <div className="px-4 py-4 space-y-1">
               {navLinks.map(link => (
-                <button
+                <a
                   key={link.label}
-                  onClick={() => scrollTo(link.href)}
+                  href={link.href}
+                  onClick={(event) => navigateToSection(event, link.href)}
                   className="block w-full text-left px-4 py-3 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-navy-800 font-medium transition-all"
                 >
                   {link.label}
-                </button>
+                </a>
               ))}
               <div className="pt-2 flex gap-2">
                 <Link to="/admin/login" className="flex-1 btn-secondary text-center text-sm">Admin</Link>
-                <button onClick={() => scrollTo('#contact')} className="flex-1 btn-primary text-sm">Join Now</button>
+                <a href="#contact" onClick={(event) => navigateToSection(event, '#contact')} className="flex-1 btn-primary text-center text-sm">Join Now</a>
               </div>
             </div>
           </motion.div>

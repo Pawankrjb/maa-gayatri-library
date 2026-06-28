@@ -2,9 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 export default function Hero() {
-  const scrollTo = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  const navigateToSection = (event, id) => {
+    event.preventDefault();
+    window.history.pushState(null, '', `#${id}`);
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
@@ -63,15 +64,16 @@ export default function Hero() {
             transition={{ delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <button onClick={() => scrollTo('fees')} className="btn-primary text-base px-8 py-4 text-center">
+            <a href="#fees" onClick={(event) => navigateToSection(event, 'fees')} className="btn-primary text-base px-8 py-4 text-center">
               Join Now — View Plans
-            </button>
-            <button
-              onClick={() => scrollTo('contact')}
+            </a>
+            <a
+              href="#contact"
+              onClick={(event) => navigateToSection(event, 'contact')}
               className="border-2 border-white/40 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-xl transition-all text-base backdrop-blur-sm"
             >
               Contact Us
-            </button>
+            </a>
           </motion.div>
 
           {/* Stats */}

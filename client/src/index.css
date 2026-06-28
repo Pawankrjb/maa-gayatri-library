@@ -5,6 +5,7 @@
 @layer base {
   * { @apply scroll-smooth; }
   body { @apply bg-white dark:bg-navy-950 text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300; }
+  section[id] { scroll-margin-top: 5rem; }
   h1, h2, h3 { @apply font-display; }
 }
 
