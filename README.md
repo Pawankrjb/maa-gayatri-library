@@ -106,8 +106,8 @@ npm run client
 
 ```
 URL:      http://localhost:3000/admin/login
-Email:    admin@maagayatri.com
-Password: Admin@123
+Email:    xyz@email.com
+Password: ***********
 ```
 
 > ⚠️ **Change the password immediately** after first login via Admin → Settings → Change Password.
