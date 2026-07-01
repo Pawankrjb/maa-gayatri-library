@@ -213,18 +213,10 @@ app.get('*', (req, res) => {
 
 ---
 
-## 📞 Library Contact (defaults)
-
-```
-Name:    Maa Gayatri Library
-Address: Shanti Nagar, Balti Factory, Ludhiana, Punjab
-Phone:   +91 98765 43210
-Timings: 6:00 AM – 10:00 PM (Mon–Sun)
-```
 
 Update via Admin → Settings → Contact Information
 
 ---
-
+Dev-pawankr112
 Made with ❤️ for Maa Gayatri Library
 # maa-gayatri-library
